@@ -29,7 +29,7 @@ flowchart TD
     U106 --> |hayır| U107{{Şifre ve Kullanıcı Adı Hatalı}} 
     U107 --> U108{Kullanıcı Şifre ya da Mailini Bilmiyor Mu?}:::karar
     U108 --> |evet| U105
-    U108 --> |hayır| U109["Şifremi Hatırlamıyorum?" seçeneğini işaretle"]:::islem
+    U108 --> |hayır| U109["Şifremi Hatırlamıyorum? seçeneğini işaretle"]:::islem
     U109 --> U110[/Kullanıcı mail adresini girer/]:::verigirisi
     U110 --> U111[Kullanıcı Mail Adresine Gelen Adrese Gider]:::islem
     U111 --> U112[/Yeni Şifre Girilir/]:::verigirisi
