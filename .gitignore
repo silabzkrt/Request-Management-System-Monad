@@ -1,0 +1,51 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+log/
+logs/
+*.log
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# Vaadin
+/frontend/generated/
+/src/main/bundles/
+/src/main/dev-bundle/
+/src/main/resources/META-INF/VAADIN/
+/src/main/resources/META-INF/VAADIN/webapp/
+/src/main/resources/META-INF/VAADIN/config/
+/src/main/resources/META-INF/VAADIN/build/
+
+# Mac
+.DS_Store

@@ -1,0 +1,474 @@
+2026-07-02 10:35:33.937704+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0001' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (1, 26, 'Sistem Çöktü', 'Sabah saatlerinde tüm hastane genelinde sistem çöktü, hasta kayıtları alınamıyor. Çok acil durum! Bu çok uzun bir açıklama çünkü 100 karakter sınırını test etmek istiyoruz. Lütfen en kısa sürede çözün.', 'UNASSIGNED', 'SİSTEM_ÇÖKÜŞÜ', 'REQ-0001', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:35:33.940696+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0002' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (2, 27, 'Raporlama Hatası', 'Aylık raporlar eksik geliyor, bazı doktor isimleri listede yok.', 'UNASSIGNED', 'DİĞER', 'REQ-0002', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:35:33.942699+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0003' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (3, 28, 'Veritabanı Senkronizasyonu', 'Görüntüleme sonuçları veritabanına aktarılmıyor.', 'ASSIGNED', 'VERİ_KAYBI', 'REQ-0003', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:35:33.943696+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0004' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (4, 29, 'UI Düzeltmesi', 'Butonlar yanlış hizalanmış.', 'COMPLETED', 'BUG_DÜZELTME', 'REQ-0004', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:35:33.945204+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0005' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (5, 30, 'Ödeme Geçmiyor', 'Kredi kartı işlemleri arka planda patlıyor.', 'UNASSIGNED', 'DİĞER', 'REQ-0005', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.260706+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0001' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (1, 26, 'Sistem Coktu', 'Sabah saatlerinde tum hastane genelinde sistem coktu, hasta kayitlari alinamiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0001', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.264705+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0002' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (2, 28, 'Sayfa acilmiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'YENI_OZELLIK', 'REQ-0002', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.265969+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0003' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (3, 35, 'Sistem cokmesi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0003', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.266975+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0004' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (4, 29, 'Sayfa acilmiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'COMPLETED', 'DIGER', 'REQ-0004', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.267974+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0005' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (5, 28, 'Yanlis hesaplama', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'DIGER', 'REQ-0005', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.267974+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0006' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (6, 27, 'Buton calismiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'PENDING', 'YENI_OZELLIK', 'REQ-0006', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.269976+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0007' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (7, 32, 'Rapor Hatasi', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'YENI_OZELLIK', 'REQ-0007', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.269976+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0008' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (8, 32, 'Buton calismiyor', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'PENDING', 'BUG_DUZELTME', 'REQ-0008', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.270857+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0009' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (9, 26, 'Yanlis hesaplama', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'YENI_OZELLIK', 'REQ-0009', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.271862+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0010' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (10, 28, 'Yanlis hesaplama', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'YENI_OZELLIK', 'REQ-0010', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.271862+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0011' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (11, 35, 'Sistem cokmesi', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'VERI_KAYBI', 'REQ-0011', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.273398+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0012' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (12, 33, 'Rapor Hatasi', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'UNASSIGNED', 'DIGER', 'REQ-0012', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.273398+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0013' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (13, 31, 'Ekran dondu', 'Musteriler sikayet ediyor, fatura kesilemiyor acil!', 'COMPLETED', 'VERI_KAYBI', 'REQ-0013', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.274923+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0014' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (14, 29, 'Sifremi unuttum', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0014', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.274923+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0015' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (15, 28, 'Veri kaybi', 'Ekrandaki butonlar kaymis, responsive degil.', 'COMPLETED', 'YENI_OZELLIK', 'REQ-0015', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.276449+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0016' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (16, 35, 'Sistem cokmesi', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0016', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.277971+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0017' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (17, 34, 'Rapor Hatasi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'UNASSIGNED', 'YENI_OZELLIK', 'REQ-0017', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.278978+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0018' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (18, 34, 'Rapor Hatasi', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0018', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.279978+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0019' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (19, 34, 'Buton calismiyor', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0019', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.279978+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0020' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (20, 30, 'Rapor Hatasi', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0020', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.280978+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0021' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (21, 34, 'Kullanici adi yanlis', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0021', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.282978+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0022' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (22, 28, 'Sifremi unuttum', 'Sistem surekli cokuyor, acil mudahale lazim.', 'ASSIGNED', 'DIGER', 'REQ-0022', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.282978+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0023' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (23, 30, 'Buton calismiyor', 'Sistem surekli cokuyor, acil mudahale lazim.', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0023', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.285490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0024' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (24, 29, 'Buton calismiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'BUG_DUZELTME', 'REQ-0024', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.286490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0025' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (25, 30, 'Ekran dondu', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'DIGER', 'REQ-0025', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.287491+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0026' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (26, 28, 'Sifremi unuttum', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'UNASSIGNED', 'DIGER', 'REQ-0026', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.288490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0027' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (27, 34, 'Sayfa acilmiyor', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0027', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.289491+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0028' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (28, 34, 'Rapor Hatasi', 'Ekrandaki butonlar kaymis, responsive degil.', 'UNASSIGNED', 'DIGER', 'REQ-0028', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.289491+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0029' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (29, 31, 'Sayfa acilmiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0029', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.290490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0030' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (30, 35, 'Yanlis hesaplama', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0030', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.291490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0031' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (31, 30, 'Veri kaybi', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0031', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.292491+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0032' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (32, 28, 'Ekran dondu', 'Sistem surekli cokuyor, acil mudahale lazim.', 'PENDING', 'BUG_DUZELTME', 'REQ-0032', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.293490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0033' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (33, 33, 'Veri kaybi', 'Sistem surekli cokuyor, acil mudahale lazim.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0033', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.293490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0034' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (34, 28, 'Uygulama cok yavas', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'ASSIGNED', 'YENI_OZELLIK', 'REQ-0034', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.294490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0035' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (35, 34, 'Kullanici adi yanlis', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0035', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.294490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0036' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (36, 33, 'Sayfa acilmiyor', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0036', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.294490+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0037' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (37, 26, 'Buton calismiyor', 'Ekrandaki butonlar kaymis, responsive degil.', 'UNASSIGNED', 'BUG_DUZELTME', 'REQ-0037', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.295708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0038' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (38, 26, 'Ekran dondu', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'PENDING', 'SISTEM_COKUSU', 'REQ-0038', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.295708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0039' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (39, 31, 'Ekran dondu', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0039', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.296708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0040' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (40, 26, 'Rapor Hatasi', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0040', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.297708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0041' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (41, 26, 'Sistem cokmesi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'PENDING', 'YENI_OZELLIK', 'REQ-0041', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.297708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0042' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (42, 27, 'Kullanici adi yanlis', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0042', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.298708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0043' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (43, 35, 'Kullanici adi yanlis', 'Musteriler sikayet ediyor, fatura kesilemiyor acil!', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0043', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.298708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0044' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (44, 34, 'Uygulama cok yavas', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0044', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.300708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0045' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (45, 30, 'Buton calismiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'PENDING', 'DIGER', 'REQ-0045', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.300708+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0046' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (46, 26, 'Veri kaybi', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'BUG_DUZELTME', 'REQ-0046', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.301709+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0047' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (47, 34, 'Uygulama cok yavas', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'PENDING', 'VERI_KAYBI', 'REQ-0047', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.301709+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0048' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (48, 33, 'Sayfa acilmiyor', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0048', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.302707+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0049' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (49, 27, 'Sayfa acilmiyor', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'ASSIGNED', 'DIGER', 'REQ-0049', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.302707+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0050' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (50, 34, 'Ekran dondu', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0050', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:08.303707+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0051' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (51, 28, 'Kullanici adi yanlis', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'PENDING', 'DIGER', 'REQ-0051', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.417753+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0001' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (1, 26, 'Sistem Coktu', 'Sabah saatlerinde tum hastane genelinde sistem coktu, hasta kayitlari alinamiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0001', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.419764+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0002' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (2, 28, 'Sayfa acilmiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'YENI_OZELLIK', 'REQ-0002', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.419764+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0003' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (3, 35, 'Sistem cokmesi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0003', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.420761+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0004' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (4, 29, 'Sayfa acilmiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'COMPLETED', 'DIGER', 'REQ-0004', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.421764+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0005' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (5, 28, 'Yanlis hesaplama', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'DIGER', 'REQ-0005', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.421764+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0006' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (6, 27, 'Buton calismiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'PENDING', 'YENI_OZELLIK', 'REQ-0006', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.422762+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0007' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (7, 32, 'Rapor Hatasi', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'YENI_OZELLIK', 'REQ-0007', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.422762+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0008' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (8, 32, 'Buton calismiyor', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'PENDING', 'BUG_DUZELTME', 'REQ-0008', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.423764+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0009' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (9, 26, 'Yanlis hesaplama', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'YENI_OZELLIK', 'REQ-0009', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.424762+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0010' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (10, 28, 'Yanlis hesaplama', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'YENI_OZELLIK', 'REQ-0010', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.425767+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0011' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (11, 35, 'Sistem cokmesi', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'VERI_KAYBI', 'REQ-0011', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.425767+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0012' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (12, 33, 'Rapor Hatasi', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'UNASSIGNED', 'DIGER', 'REQ-0012', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.426762+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0013' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (13, 31, 'Ekran dondu', 'Musteriler sikayet ediyor, fatura kesilemiyor acil!', 'COMPLETED', 'VERI_KAYBI', 'REQ-0013', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.428272+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0014' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (14, 29, 'Sifremi unuttum', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0014', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.429275+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0015' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (15, 28, 'Veri kaybi', 'Ekrandaki butonlar kaymis, responsive degil.', 'COMPLETED', 'YENI_OZELLIK', 'REQ-0015', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.431275+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0016' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (16, 35, 'Sistem cokmesi', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0016', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.432276+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0017' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (17, 34, 'Rapor Hatasi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'UNASSIGNED', 'YENI_OZELLIK', 'REQ-0017', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.432276+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0018' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (18, 34, 'Rapor Hatasi', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0018', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.433275+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0019' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (19, 34, 'Buton calismiyor', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0019', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.433275+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0020' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (20, 30, 'Rapor Hatasi', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0020', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.434274+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0021' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (21, 34, 'Kullanici adi yanlis', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0021', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.435276+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0022' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (22, 28, 'Sifremi unuttum', 'Sistem surekli cokuyor, acil mudahale lazim.', 'ASSIGNED', 'DIGER', 'REQ-0022', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.436277+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0023' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (23, 30, 'Buton calismiyor', 'Sistem surekli cokuyor, acil mudahale lazim.', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0023', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.436277+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0024' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (24, 29, 'Buton calismiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'BUG_DUZELTME', 'REQ-0024', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.437789+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0025' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (25, 30, 'Ekran dondu', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'DIGER', 'REQ-0025', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.438803+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0026' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (26, 28, 'Sifremi unuttum', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'UNASSIGNED', 'DIGER', 'REQ-0026', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.438803+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0027' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (27, 34, 'Sayfa acilmiyor', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0027', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.439799+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0028' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (28, 34, 'Rapor Hatasi', 'Ekrandaki butonlar kaymis, responsive degil.', 'UNASSIGNED', 'DIGER', 'REQ-0028', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.439799+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0029' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (29, 31, 'Sayfa acilmiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0029', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.439799+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0030' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (30, 35, 'Yanlis hesaplama', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0030', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.440799+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0031' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (31, 30, 'Veri kaybi', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0031', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.441799+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0032' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (32, 28, 'Ekran dondu', 'Sistem surekli cokuyor, acil mudahale lazim.', 'PENDING', 'BUG_DUZELTME', 'REQ-0032', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.442800+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0033' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (33, 33, 'Veri kaybi', 'Sistem surekli cokuyor, acil mudahale lazim.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0033', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.443798+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0034' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (34, 28, 'Uygulama cok yavas', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'ASSIGNED', 'YENI_OZELLIK', 'REQ-0034', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.444800+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0035' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (35, 34, 'Kullanici adi yanlis', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0035', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.444800+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0036' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (36, 33, 'Sayfa acilmiyor', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0036', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.444800+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0037' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (37, 26, 'Buton calismiyor', 'Ekrandaki butonlar kaymis, responsive degil.', 'UNASSIGNED', 'BUG_DUZELTME', 'REQ-0037', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.445798+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0038' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (38, 26, 'Ekran dondu', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'PENDING', 'SISTEM_COKUSU', 'REQ-0038', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.446799+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0039' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (39, 31, 'Ekran dondu', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0039', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.446799+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0040' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (40, 26, 'Rapor Hatasi', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0040', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.447800+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0041' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (41, 26, 'Sistem cokmesi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'PENDING', 'YENI_OZELLIK', 'REQ-0041', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.447800+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0042' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (42, 27, 'Kullanici adi yanlis', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0042', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.447800+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0043' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (43, 35, 'Kullanici adi yanlis', 'Musteriler sikayet ediyor, fatura kesilemiyor acil!', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0043', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.449138+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0044' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (44, 34, 'Uygulama cok yavas', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0044', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.449646+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0045' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (45, 30, 'Buton calismiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'PENDING', 'DIGER', 'REQ-0045', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.449646+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0046' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (46, 26, 'Veri kaybi', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'BUG_DUZELTME', 'REQ-0046', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.450656+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0047' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (47, 34, 'Uygulama cok yavas', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'PENDING', 'VERI_KAYBI', 'REQ-0047', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.451655+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0048' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (48, 33, 'Sayfa acilmiyor', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0048', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.451655+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0049' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (49, 27, 'Sayfa acilmiyor', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'ASSIGNED', 'DIGER', 'REQ-0049', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.452654+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0050' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (50, 34, 'Ekran dondu', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0050', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:41:31.453655+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0051' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (51, 28, 'Kullanici adi yanlis', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'PENDING', 'DIGER', 'REQ-0051', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.358046+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0001' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (1, 26, 'Sistem Coktu', 'Sabah saatlerinde tum hastane genelinde sistem coktu, hasta kayitlari alinamiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0001', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.360048+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0002' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (2, 28, 'Sayfa acilmiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'YENI_OZELLIK', 'REQ-0002', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.360048+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0003' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (3, 35, 'Sistem cokmesi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0003', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.361557+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0004' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (4, 29, 'Sayfa acilmiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'COMPLETED', 'DIGER', 'REQ-0004', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.362566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0005' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (5, 28, 'Yanlis hesaplama', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'DIGER', 'REQ-0005', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.362566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0006' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (6, 27, 'Buton calismiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'PENDING', 'YENI_OZELLIK', 'REQ-0006', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.362566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0007' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (7, 32, 'Rapor Hatasi', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'YENI_OZELLIK', 'REQ-0007', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.363566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0008' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (8, 32, 'Buton calismiyor', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'PENDING', 'BUG_DUZELTME', 'REQ-0008', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.364566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0009' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (9, 26, 'Yanlis hesaplama', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'YENI_OZELLIK', 'REQ-0009', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.364566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0010' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (10, 28, 'Yanlis hesaplama', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'YENI_OZELLIK', 'REQ-0010', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.365566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0011' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (11, 35, 'Sistem cokmesi', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'VERI_KAYBI', 'REQ-0011', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.366566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0012' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (12, 33, 'Rapor Hatasi', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'UNASSIGNED', 'DIGER', 'REQ-0012', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.366566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0013' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (13, 31, 'Ekran dondu', 'Musteriler sikayet ediyor, fatura kesilemiyor acil!', 'COMPLETED', 'VERI_KAYBI', 'REQ-0013', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.367567+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0014' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (14, 29, 'Sifremi unuttum', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0014', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.368566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0015' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (15, 28, 'Veri kaybi', 'Ekrandaki butonlar kaymis, responsive degil.', 'COMPLETED', 'YENI_OZELLIK', 'REQ-0015', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.368566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0016' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (16, 35, 'Sistem cokmesi', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0016', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.369566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0017' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (17, 34, 'Rapor Hatasi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'UNASSIGNED', 'YENI_OZELLIK', 'REQ-0017', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.369566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0018' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (18, 34, 'Rapor Hatasi', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0018', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.370566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0019' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (19, 34, 'Buton calismiyor', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0019', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.370566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0020' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (20, 30, 'Rapor Hatasi', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0020', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.371566+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0021' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (21, 34, 'Kullanici adi yanlis', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'COMPLETED', 'VERI_KAYBI', 'REQ-0021', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.372075+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0022' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (22, 28, 'Sifremi unuttum', 'Sistem surekli cokuyor, acil mudahale lazim.', 'ASSIGNED', 'DIGER', 'REQ-0022', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.373077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0023' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (23, 30, 'Buton calismiyor', 'Sistem surekli cokuyor, acil mudahale lazim.', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0023', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.373077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0024' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (24, 29, 'Buton calismiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'BUG_DUZELTME', 'REQ-0024', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.374077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0025' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (25, 30, 'Ekran dondu', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'DIGER', 'REQ-0025', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.375077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0026' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (26, 28, 'Sifremi unuttum', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'UNASSIGNED', 'DIGER', 'REQ-0026', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.375077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0027' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (27, 34, 'Sayfa acilmiyor', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0027', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.376077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0028' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (28, 34, 'Rapor Hatasi', 'Ekrandaki butonlar kaymis, responsive degil.', 'UNASSIGNED', 'DIGER', 'REQ-0028', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.376077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0029' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (29, 31, 'Sayfa acilmiyor', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'COMPLETED', 'SISTEM_COKUSU', 'REQ-0029', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.377078+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0030' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (30, 35, 'Yanlis hesaplama', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0030', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.378077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0031' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (31, 30, 'Veri kaybi', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0031', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.379077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0032' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (32, 28, 'Ekran dondu', 'Sistem surekli cokuyor, acil mudahale lazim.', 'PENDING', 'BUG_DUZELTME', 'REQ-0032', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.380077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0033' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (33, 33, 'Veri kaybi', 'Sistem surekli cokuyor, acil mudahale lazim.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0033', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.380077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0034' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (34, 28, 'Uygulama cok yavas', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'ASSIGNED', 'YENI_OZELLIK', 'REQ-0034', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.380077+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0035' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (35, 34, 'Kullanici adi yanlis', 'Bu cok uzun bir aciklama olabilir, sadece test amacli lorem ipsum dolor sit amet.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0035', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.381582+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0036' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (36, 33, 'Sayfa acilmiyor', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0036', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.381582+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0037' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (37, 26, 'Buton calismiyor', 'Ekrandaki butonlar kaymis, responsive degil.', 'UNASSIGNED', 'BUG_DUZELTME', 'REQ-0037', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.381582+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0038' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (38, 26, 'Ekran dondu', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'PENDING', 'SISTEM_COKUSU', 'REQ-0038', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.382589+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0039' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (39, 31, 'Ekran dondu', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0039', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.383596+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0040' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (40, 26, 'Rapor Hatasi', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0040', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.383596+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0041' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (41, 26, 'Sistem cokmesi', 'Rapor ekraninda eksik kolonlar var, lutfen ekleyin.', 'PENDING', 'YENI_OZELLIK', 'REQ-0041', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.384596+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0042' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (42, 27, 'Kullanici adi yanlis', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'UNASSIGNED', 'SISTEM_COKUSU', 'REQ-0042', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.385595+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0043' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (43, 35, 'Kullanici adi yanlis', 'Musteriler sikayet ediyor, fatura kesilemiyor acil!', 'ASSIGNED', 'SISTEM_COKUSU', 'REQ-0043', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.386596+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0044' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (44, 34, 'Uygulama cok yavas', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0044', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.387596+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0045' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (45, 30, 'Buton calismiyor', 'Ana sayfaya girdigimde beyaz ekran aliyorum.', 'PENDING', 'DIGER', 'REQ-0045', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.387596+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0046' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (46, 26, 'Veri kaybi', 'Bazi kayitlar ucmus gibi gorunuyor, loglara bakar misiniz?', 'PENDING', 'BUG_DUZELTME', 'REQ-0046', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.388596+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0047' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (47, 34, 'Uygulama cok yavas', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'PENDING', 'VERI_KAYBI', 'REQ-0047', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.389595+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0048' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (48, 33, 'Sayfa acilmiyor', 'Sifre sifirlama maili gelmiyor, sunucu ayarlarini kontrol edelim.', 'ASSIGNED', 'VERI_KAYBI', 'REQ-0048', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.390596+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0049' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (49, 27, 'Sayfa acilmiyor', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'ASSIGNED', 'DIGER', 'REQ-0049', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.392105+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0050' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (50, 34, 'Ekran dondu', 'Performans sorunu var, sorgular cok yavas calisiyor.', 'ASSIGNED', 'BUG_DUZELTME', 'REQ-0050', CURRENT_TIMESTAMP) [22001-224]
+2026-07-02 10:55:16.393107+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "GENERATED_ID CHARACTER VARYING(6)": "'REQ-0051' (8)"; SQL statement:
+INSERT INTO requests_Sila (request_ID, creator_ID, title, description, status, type, generated_id, created_at) VALUES (51, 28, 'Kullanici adi yanlis', 'Giris yapamiyoruz, kullanici hatasi veriyor surekli.', 'PENDING', 'DIGER', 'REQ-0051', CURRENT_TIMESTAMP) [22001-224]
