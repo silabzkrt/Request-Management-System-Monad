@@ -92,95 +92,11 @@ public class CustomerMainPage extends HorizontalLayout {
         userOpt.ifPresent(user -> this.currentUser = user);
     }
 
-    private VerticalLayout createSidebar() {
-        VerticalLayout sidebar = new VerticalLayout();
-        sidebar.setWidth("300px");
-        sidebar.setHeightFull();
-        
-        // Glassmorphism koyu şeffaf tasarım (Kullanıcı geri bildirimi)
-        sidebar.getStyle()
-                .set("background", "rgba(0, 0, 0, 0.65)")
-                .set("backdrop-filter", "blur(10px)")
-                .set("color", "white")
-                .set("box-shadow", "2px 0 10px rgba(0,0,0,0.2)");
-        
-        sidebar.setPadding(true);
-        sidebar.setSpacing(true);
-
-        // Fotoğraf / Logo Yeri
-        Div avatarPlaceholder = new Div();
-        avatarPlaceholder.setWidth("120px");
-        avatarPlaceholder.setHeight("120px");
-        avatarPlaceholder.getStyle()
-                .set("background-color", "#3b6998")
-                .set("border-radius", "50%")
-                .set("margin", "20px auto")
-                .set("display", "flex")
-                .set("align-items", "center")
-                .set("justify-content", "center")
-                .set("font-size", "40px")
-                .set("font-weight", "bold");
-        
-        // İsim baş harfleri
-        String initials = "";
-        if (currentUser.getNameSurname() != null && !currentUser.getNameSurname().isEmpty()) {
-            String[] parts = currentUser.getNameSurname().split(" ");
-            initials = parts.length > 1 ? parts[0].substring(0,1) + parts[1].substring(0,1) : parts[0].substring(0,1);
-        }
-        avatarPlaceholder.setText(initials.toUpperCase());
-
-        // Kullanıcı Detayları
-        VerticalLayout detailsLayout = new VerticalLayout();
-        detailsLayout.setPadding(false);
-        detailsLayout.setSpacing(false);
-        detailsLayout.getStyle().set("font-size", "14px").set("line-height", "1.6");
-
-        detailsLayout.add(
-            new Div(new Span("Kullanıcı: "), new Span(currentUser.getNameSurname())),
-            new Div(new Span("Email: "), new Span(currentUser.getEmail())),
-            new Div(new Span("Şirket: "), new Span(currentUser.getCompany() != null ? currentUser.getCompany().getCompanyName() : "None"))
-        );
-
-        Button updateProfileBtn = new Button("Profili Düzenle", e -> openUpdateProfileDialog());
-        updateProfileBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        updateProfileBtn.getStyle().set("background-color", "#3b6998").set("width", "100%").set("margin-top", "20px");
-        
-        Button contactAdminBtn = new Button("Admine Bağlan", e -> com.vaadin.flow.component.UI.getCurrent().navigate("contact_admin"));
-        contactAdminBtn.getStyle().set("width", "100%").set("margin-top", "10px").set("color", "white").set("background", "rgba(255,255,255,0.2)");
-
-        sidebar.add(avatarPlaceholder, detailsLayout, updateProfileBtn, contactAdminBtn);
-        sidebar.setHorizontalComponentAlignment(Alignment.CENTER, avatarPlaceholder);
-
-        return sidebar;
-    }
-
     private VerticalLayout createMainContent() {
         VerticalLayout main = new VerticalLayout();
         main.setHeightFull();
         main.setPadding(true);
         main.getStyle().set("padding-left", "40px").set("padding-right", "40px");
-
-        // Header (Welcome & Logout)
-        HorizontalLayout header = new HorizontalLayout();
-        header.setWidthFull();
-        header.setJustifyContentMode(JustifyContentMode.BETWEEN);
-        header.setAlignItems(Alignment.CENTER);
-
-        H2 welcomeText = new H2("HOŞGELDİN \"" + currentUser.getNameSurname().toUpperCase() + "\"");
-        welcomeText.getStyle().set("font-weight", "400").set("letter-spacing", "2px").set("margin", "0 auto").set("text-align", "center").set("width", "100%");
-
-        HorizontalLayout headerRight = new HorizontalLayout();
-        headerRight.setAlignItems(Alignment.CENTER);
-        NotificationBadge notificationBadge = new NotificationBadge(notificationService, currentUser);
-        headerRight.add(notificationBadge);
-
-        Button toggleSidebarBtn = new Button(new com.vaadin.flow.component.icon.Icon(com.vaadin.flow.component.icon.VaadinIcon.MENU));
-        toggleSidebarBtn.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-        toggleSidebarBtn.getStyle().set("color", "#3b6998").set("font-size", "24px");
-        toggleSidebarBtn.addClickListener(e -> sidebar.setVisible(!sidebar.isVisible()));
-
-        header.add(toggleSidebarBtn, welcomeText, headerRight);
-        header.expand(welcomeText);
 
         com.vaadin.flow.component.html.Image logo = new com.vaadin.flow.component.html.Image("images/logo.png", "Monad Logo");
         logo.setHeight("80px");
@@ -245,7 +161,7 @@ public class CustomerMainPage extends HorizontalLayout {
 
         updateGrid();
 
-        main.add(header, logo, toolbar, requestGrid);
+        main.add(logo, toolbar, requestGrid);
         return main;
     }
 
@@ -271,21 +187,21 @@ public class CustomerMainPage extends HorizontalLayout {
         MultiFileMemoryBuffer buffer = new MultiFileMemoryBuffer();
         Upload upload = new Upload(buffer);
         upload.setAcceptedFileTypes("image/jpeg", "image/png", "application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-        upload.setMaxFiles(1);
-        Span uploadHint = new Span("Sadece JPEG, PNG, PDF ve DOCX");
+        upload.setMaxFiles(5);
+        Span uploadHint = new Span("Maksimum 5 dosya yükleyebilirsiniz.");
         uploadHint.getStyle().set("font-size", "12px").set("color", "gray");
         
-        final String[] uploadedPath = {null};
+        final java.util.List<String> uploadedPathsList = new java.util.ArrayList<>();
         upload.addSucceededListener(event -> {
             String fileName = event.getFileName();
-            File uploadsDir = new File("uploads/");
-            if (!uploadsDir.exists()) uploadsDir.mkdir();
+            File uploadsDir = new File(System.getProperty("user.dir") + "/uploads/");
+            if (!uploadsDir.exists()) uploadsDir.mkdirs();
             try {
                 File targetFile = new File(uploadsDir, System.currentTimeMillis() + "_" + fileName);
                 Files.copy(buffer.getInputStream(fileName), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                uploadedPath[0] = targetFile.getAbsolutePath();
+                uploadedPathsList.add(targetFile.getAbsolutePath());
             } catch (Exception ex) {
-                Notification.show("Dosya yüklenemedi.");
+                Notification.show("Dosya yüklenemedi: " + ex.getMessage());
             }
         });
 
@@ -306,7 +222,9 @@ public class CustomerMainPage extends HorizontalLayout {
                 typeField.getValue(),
                 deadlineField.getValue()
             );
-            newReq.setAttachmentPath(uploadedPath[0]);
+            if (!uploadedPathsList.isEmpty()) {
+                newReq.setAttachmentPath(String.join(";", uploadedPathsList));
+            }
             requestService.save(newReq);
             Notification.show("Talep başarıyla alındı");
             updateGrid();
@@ -323,40 +241,51 @@ public class CustomerMainPage extends HorizontalLayout {
 
     private void openDetailsDialog(Request req) {
         Dialog dialog = new Dialog();
+        dialog.setWidth("800px");
+        dialog.setMaxHeight("90vh");
         dialog.setHeaderTitle("TALEP ID " + req.getId() + " DETAYLARI");
 
         VerticalLayout layout = new VerticalLayout();
         layout.setSpacing(false);
         layout.setPadding(false);
 
-        layout.add(new Div(new Span("Talep Başlığı: "), new Span(req.getTitle())));
-        layout.add(new Div(new Span("Açıklama: "), new Span(req.getDescription())));
-        layout.add(new Div(new Span("Talebi Oluşturan: "), new Span(req.getCreator().getNameSurname() + " " + req.getCreator().getId().toString())));
-        layout.add(new Div(new Span("Müşteri ID: "), new Span(req.getCreator().getId().toString())));
+        layout.add(new Div(new Span("Talep Başlığı: "), new Span(req.getTitle() != null ? req.getTitle() : "Bilinmeyen")));
+        
+        Span descSpan = new Span(req.getDescription() != null ? req.getDescription() : "Yok");
+        descSpan.getStyle().set("white-space", "pre-wrap").set("word-break", "break-word");
+        layout.add(new Div(new Span("Açıklama: "), descSpan));
+        
+        layout.add(new Div(new Span("Talebi Oluşturan: "), new Span(req.getCreator() != null ? (req.getCreator().getNameSurname() + " " + req.getCreator().getId().toString()) : "Bilinmeyen")));
+        layout.add(new Div(new Span("Müşteri ID: "), new Span(req.getCreator() != null && req.getCreator().getId() != null ? req.getCreator().getId().toString() : "Bilinmeyen")));
         layout.add(new Div(new Span("Tip: "), new Span(req.getType() != null ? req.getType().name() : "None")));
         layout.add(new Div(new Span("Teslim: "), new Span(req.getDeadline() != null ? req.getDeadline().toString() : "None")));
-        layout.add(new Div(new Span("Durum: "), new Span(req.getStatus().name())));
+        layout.add(new Div(new Span("Durum: "), new Span(req.getStatus() != null ? req.getStatus().name() : "Bilinmeyen")));
         
-        if (req.getAttachmentPath() != null) {
-            java.io.File file = new java.io.File(req.getAttachmentPath());
-            if (file.exists()) {
-                com.vaadin.flow.server.StreamResource resource = new com.vaadin.flow.server.StreamResource(
-                    file.getName(), () -> {
-                        try { return new java.io.FileInputStream(file); }
-                        catch (Exception ex) { return null; }
-                    });
-                com.vaadin.flow.component.html.Anchor downloadLink = new com.vaadin.flow.component.html.Anchor(resource, "Dosyayı İndir / Görüntüle");
-                downloadLink.setTarget("_blank");
-                layout.add(new Div(new Span("Ekli Dosya: "), downloadLink));
-            } else {
-                layout.add(new Div(new Span("Ekli Dosya: "), new Span("Dosya sunucuda bulunamadı")));
+        if (req.getAttachmentPath() != null && !req.getAttachmentPath().trim().isEmpty()) {
+            Div attachmentsDiv = new Div();
+            attachmentsDiv.add(new Span("Ekli Dosya(lar): "));
+            String[] paths = req.getAttachmentPath().split(";");
+            for (String p : paths) {
+                java.io.File file = new java.io.File(p);
+                if (file.exists()) {
+                    com.vaadin.flow.server.StreamResource resource = new com.vaadin.flow.server.StreamResource(
+                        file.getName(), () -> {
+                            try { return new java.io.FileInputStream(file); }
+                            catch (Exception ex) { return null; }
+                        });
+                    com.vaadin.flow.component.html.Anchor downloadLink = new com.vaadin.flow.component.html.Anchor(resource, file.getName());
+                    downloadLink.setTarget("_blank");
+                    downloadLink.getStyle().set("margin-right", "10px");
+                    attachmentsDiv.add(downloadLink);
+                }
             }
+            layout.add(attachmentsDiv);
         } else {
             layout.add(new Div(new Span("Ekli Dosya: "), new Span("Yok")));
         }
 
-        layout.add(new H3("Notlar (Herkes Görebilir)"));
-        RequestNoteComponent noteComponent = new RequestNoteComponent(requestNoteService, req, currentUser);
+        layout.add(new H3("Müşteri ile Yazışmalar"));
+        RequestNoteComponent noteComponent = new RequestNoteComponent(requestNoteService, req, currentUser, false);
         layout.add(noteComponent);
 
         dialog.add(layout);
@@ -391,21 +320,25 @@ public class CustomerMainPage extends HorizontalLayout {
         MultiFileMemoryBuffer buffer = new MultiFileMemoryBuffer();
         Upload upload = new Upload(buffer);
         upload.setAcceptedFileTypes("image/jpeg", "image/png", "application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-        upload.setMaxFiles(1);
-        Span uploadHint = new Span("Yeni dosya eklerseniz eski dosya değiştirilir.");
+        upload.setMaxFiles(5);
+        Span uploadHint = new Span("Yeni dosya eklerseniz üzerine eklenir. Maks 5 dosya.");
         uploadHint.getStyle().set("font-size", "12px").set("color", "gray");
         
-        final String[] uploadedPath = {req.getAttachmentPath()};
+        final java.util.List<String> uploadedPathsList = new java.util.ArrayList<>();
+        if (req.getAttachmentPath() != null && !req.getAttachmentPath().trim().isEmpty()) {
+            uploadedPathsList.addAll(java.util.Arrays.asList(req.getAttachmentPath().split(";")));
+        }
+
         upload.addSucceededListener(event -> {
             String fileName = event.getFileName();
-            File uploadsDir = new File("uploads/");
-            if (!uploadsDir.exists()) uploadsDir.mkdir();
+            File uploadsDir = new File(System.getProperty("user.dir") + "/uploads/");
+            if (!uploadsDir.exists()) uploadsDir.mkdirs();
             try {
                 File targetFile = new File(uploadsDir, System.currentTimeMillis() + "_" + fileName);
                 Files.copy(buffer.getInputStream(fileName), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                uploadedPath[0] = targetFile.getAbsolutePath();
+                uploadedPathsList.add(targetFile.getAbsolutePath());
             } catch (Exception ex) {
-                Notification.show("Dosya yüklenemedi.");
+                Notification.show("Dosya yüklenemedi: " + ex.getMessage());
             }
         });
 
@@ -423,7 +356,10 @@ public class CustomerMainPage extends HorizontalLayout {
             req.setDescription(descField.getValue());
             req.setType(typeField.getValue());
             req.setDeadline(deadlineField.getValue());
-            req.setAttachmentPath(uploadedPath[0]);
+            if (!uploadedPathsList.isEmpty()) {
+                req.setAttachmentPath(String.join(";", uploadedPathsList));
+            }
+            
             
             boolean wasAlreadyAssigned = req.getStatus() == RequestStatus.ASSIGNED || req.getStatus() == RequestStatus.TESTING || req.getStatus() == RequestStatus.COMPLETED;
             if (!wasAlreadyAssigned) {

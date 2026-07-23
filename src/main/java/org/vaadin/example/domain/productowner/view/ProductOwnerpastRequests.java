@@ -117,14 +117,14 @@ public class ProductOwnerpastRequests extends VerticalLayout {
         Request req = requestService.findByIdWithDetails(reqArg.getId()).orElse(reqArg);
         Dialog dialog = new Dialog();
         dialog.setHeaderTitle("Geçmiş Talep Detayları (ID: " + req.getId() + ")");
-        dialog.setWidth("800px");
+        dialog.setWidth("1200px");
         dialog.setMaxHeight("90vh");
 
         HorizontalLayout mainLayout = new HorizontalLayout();
         mainLayout.setSizeFull();
 
         VerticalLayout detailsLayout = new VerticalLayout();
-        detailsLayout.setWidth("50%");
+        detailsLayout.setWidth("33%");
         detailsLayout.getStyle().set("background", "#f8f9fa").set("padding", "15px").set("border-radius", "8px");
 
         detailsLayout.add(new H3("Talep Bilgileri"));
@@ -139,12 +139,20 @@ public class ProductOwnerpastRequests extends VerticalLayout {
         detailsLayout.add(new Div(new Span("Nihai Puan: "), new Span(p != null && p.getPriorityScore() != null ? p.getPriorityScore().toString() : "Hesaplanmadı")));
 
 
+        VerticalLayout centerLayout = new VerticalLayout();
+        centerLayout.setWidth("33%");
+        centerLayout.setPadding(false);
+        centerLayout.add(new H3("Müşteri ile Yazışmalar"));
+        RequestNoteComponent publicNoteComponent = new RequestNoteComponent(requestNoteService, req, currentUser, false);
+        centerLayout.add(publicNoteComponent);
+
         VerticalLayout rightLayout = new VerticalLayout();
-        rightLayout.setWidth("50%");
+        rightLayout.setWidth("33%");
         rightLayout.setPadding(false);
 
-        // Notlar Kısmı (Bileşen ile)
-        RequestNoteComponent noteComponent = new RequestNoteComponent(requestNoteService, req, currentUser);
+        rightLayout.add(new H3("İç Notlar (Sadece Şirket)"));
+        RequestNoteComponent internalNoteComponent = new RequestNoteComponent(requestNoteService, req, currentUser, true);
+        rightLayout.add(internalNoteComponent);
 
         if (req.getStatus() == org.vaadin.example.shared.enums.RequestStatus.REJECTED || req.getStatus() == org.vaadin.example.shared.enums.RequestStatus.UNASSIGNED) {
             VerticalLayout scoringArea = new VerticalLayout();
@@ -191,12 +199,10 @@ public class ProductOwnerpastRequests extends VerticalLayout {
             updateScoreBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
             dialog.getFooter().add(updateScoreBtn);
 
-            rightLayout.add(new H3("Notlar (Herkes Görebilir)"), noteComponent, scoringArea);
-        } else {
-            rightLayout.add(new H3("Notlar (Herkes Görebilir)"), noteComponent);
+            rightLayout.add(scoringArea);
         }
 
-        mainLayout.add(detailsLayout, rightLayout);
+        mainLayout.add(detailsLayout, centerLayout, rightLayout);
 
         dialog.add(mainLayout);
 

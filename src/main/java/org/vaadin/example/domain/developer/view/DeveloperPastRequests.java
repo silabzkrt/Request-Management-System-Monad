@@ -29,13 +29,15 @@ public class DeveloperPastRequests extends VerticalLayout {
 
     private final WorkflowService workflowService;
     private final UserService userService;
+    private final org.vaadin.example.domain.request.service.RequestNoteService requestNoteService;
     private Developer currentUser;
 
     private FlexLayout cardContainer;
 
-    public DeveloperPastRequests(WorkflowService workflowService, UserService userService) {
+    public DeveloperPastRequests(WorkflowService workflowService, UserService userService, org.vaadin.example.domain.request.service.RequestNoteService requestNoteService, org.vaadin.example.domain.notification.service.UserNotificationService notificationService) {
         this.workflowService = workflowService;
         this.userService = userService;
+        this.requestNoteService = requestNoteService;
 
         setSizeFull();
         setPadding(false);
@@ -52,7 +54,17 @@ public class DeveloperPastRequests extends VerticalLayout {
         VerticalLayout content = new VerticalLayout();
         content.setSizeFull();
         content.setPadding(true);
-        content.add(new H2("Geçmiş İşler"));
+
+        HorizontalLayout headerLayout = new HorizontalLayout();
+        headerLayout.setWidthFull();
+        headerLayout.setJustifyContentMode(JustifyContentMode.BETWEEN);
+        headerLayout.setAlignItems(Alignment.CENTER);
+        headerLayout.add(new H2("Geçmiş İşler"));
+        
+        org.vaadin.example.domain.notification.view.NotificationBadge notificationBadge = new org.vaadin.example.domain.notification.view.NotificationBadge(notificationService, currentUser);
+        headerLayout.add(notificationBadge);
+
+        content.add(headerLayout);
         content.add(new Span("Tamamlanmış olan görevlerinizi aşağıda görebilirsiniz."));
 
         cardContainer = new FlexLayout();
@@ -172,6 +184,53 @@ public class DeveloperPastRequests extends VerticalLayout {
         Button detailBtn = new Button("Detay");
         detailBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         detailBtn.getStyle().set("background-color", "#3b699e").set("color", "white").set("border-radius", "6px").set("cursor", "pointer").set("font-size", "12px");
+        detailBtn.addClickListener(e -> {
+            com.vaadin.flow.component.dialog.Dialog dialog = new com.vaadin.flow.component.dialog.Dialog();
+            dialog.setHeaderTitle("Talep Detayı - " + (req != null ? req.getGeneratedId() : "N/A"));
+            dialog.setWidth("1000px");
+            
+            VerticalLayout dialogLayout = new VerticalLayout();
+            dialogLayout.setPadding(false);
+            
+            if (req != null) {
+                dialogLayout.add(new com.vaadin.flow.component.html.H3(req.getTitle() != null ? req.getTitle() : "Başlıksız"));
+                dialogLayout.add(new Span("Gönderen: " + (req.getCreator() != null ? req.getCreator().getNameSurname() : "-")));
+                dialogLayout.add(new Span("Şirket: " + (req.getCreator() != null && req.getCreator().getCompany() != null ? req.getCreator().getCompany().getCompanyName() : "-")));
+                dialogLayout.add(new Span("Gönderim Tarihi: " + (req.getCreatedAt() != null ? req.getCreatedAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")) : "-")));
+                dialogLayout.add(new Span("Öncelik Skoru: " + (req.getFinalPriorityScore() != null ? String.valueOf(req.getFinalPriorityScore()) : "-")));
+                
+                Span descSpan = new Span(req.getDescription() != null ? req.getDescription() : "Açıklama yok.");
+                descSpan.getStyle().set("margin-top", "15px").set("padding", "10px").set("background-color", "#f5f5f5").set("border-radius", "5px").set("width", "100%");
+                dialogLayout.add(descSpan);
+
+                HorizontalLayout notesLayout = new HorizontalLayout();
+                notesLayout.setWidthFull();
+
+                VerticalLayout publicNotes = new VerticalLayout();
+                publicNotes.setWidth("50%");
+                publicNotes.setPadding(false);
+                publicNotes.add(new com.vaadin.flow.component.html.H3("Müşteri ile Yazışmalar"));
+                org.vaadin.example.domain.request.view.components.RequestNoteComponent publicNoteComponent = new org.vaadin.example.domain.request.view.components.RequestNoteComponent(requestNoteService, req, currentUser, false);
+                publicNotes.add(publicNoteComponent);
+
+                VerticalLayout internalNotes = new VerticalLayout();
+                internalNotes.setWidth("50%");
+                internalNotes.setPadding(false);
+                internalNotes.add(new com.vaadin.flow.component.html.H3("İç Notlar (Sadece Şirket)"));
+                org.vaadin.example.domain.request.view.components.RequestNoteComponent internalNoteComponent = new org.vaadin.example.domain.request.view.components.RequestNoteComponent(requestNoteService, req, currentUser, true);
+                internalNotes.add(internalNoteComponent);
+
+                notesLayout.add(publicNotes, internalNotes);
+                dialogLayout.add(notesLayout);
+            }
+            
+            Button closeBtn = new Button("Kapat", ev -> dialog.close());
+            closeBtn.addThemeVariants(ButtonVariant.LUMO_ERROR);
+            dialog.getFooter().add(closeBtn);
+            
+            dialog.add(dialogLayout);
+            dialog.open();
+        });
         
         actions.add(detailBtn);
 

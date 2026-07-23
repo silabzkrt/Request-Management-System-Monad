@@ -30,14 +30,22 @@ public class RequestNote {
     @OneToMany(mappedBy = "note", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private java.util.List<NoteAttachment> attachments = new java.util.ArrayList<>();
 
+    @Column(name = "is_internal", columnDefinition = "boolean default false")
+    private boolean isInternal = false;
+
     public RequestNote() {
     }
 
-    public RequestNote(Request request, User submitter, String content) {
+    public RequestNote(Request request, User submitter, String content, boolean isInternal) {
         this.request = request;
         this.submitter = submitter;
         this.content = content;
+        this.isInternal = isInternal;
         this.createdAt = LocalDateTime.now();
+    }
+
+    public RequestNote(Request request, User submitter, String content) {
+        this(request, submitter, content, false);
     }
 
     public Long getId() {
@@ -82,4 +90,7 @@ public class RequestNote {
 
     public java.util.List<NoteAttachment> getAttachments() { return attachments; }
     public void setAttachments(java.util.List<NoteAttachment> attachments) { this.attachments = attachments; }
+
+    public boolean isInternal() { return isInternal; }
+    public void setInternal(boolean internal) { isInternal = internal; }
 }

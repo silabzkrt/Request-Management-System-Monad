@@ -28,7 +28,7 @@ public class MainView extends VerticalLayout implements BeforeEnterObserver {
             } else if (role.equals(UserTypes.YAZILIMCI.getSpringRole())) {
                 event.forwardTo("developer_main");
             } else if (role.equals(UserTypes.ADMIN.getSpringRole())) {
-                event.forwardTo("admin_main");
+                event.forwardTo("admin");
             } else if (role.equals(UserTypes.URUN_SORUMLUSU.getSpringRole())) {
                 event.forwardTo("po_main");
             } else if (role.equals(UserTypes.YAZILIM_YONETICISI.getSpringRole())) {

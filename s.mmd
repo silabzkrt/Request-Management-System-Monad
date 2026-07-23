@@ -1,0 +1,67 @@
+graph LR
+    %% Alt Sistemler Renk Kodları Tanımlaması (Stiller)
+    classDef sst fill:#FF5252,stroke:#B71C1C,stroke-width:2px,color:#fff,font-weight:bold;   %% Kırmızı
+    classDef havi fill:#FFD740,stroke:#F57F17,stroke-width:2px,color:#000,font-weight:bold;  %% Sarı
+    classDef eas fill:#448AFF,stroke:#0D47A1,stroke-width:2px,color:#fff,font-weight:bold;   %% Mavi
+    classDef uyt fill:#69F0AE,stroke:#1565C0,stroke-width:2px,color:#000,font-weight:bold;  %% Açık Mavi
+    classDef mks fill:#69F0AE,stroke:#1565C0,stroke-width:2px,color:#000,font-weight:bold;  %% Yeşile yakın
+    classDef iks fill:#B2FF59,stroke:#33691E,stroke-width:2px,color:#000,font-weight:bold;  %% Yeşil
+    classDef apam fill:#FFAB40,stroke:#E65100,stroke-width:2px,color:#000,font-weight:bold; %% Turuncu
+    classDef cevresel fill:#9E9E9E,stroke:#424242,stroke-width:2px,color:#fff,font-weight:bold; %% Gri
+
+    %% 1. Sensör Alt Sistemi (SST) - KIRMIZI
+    subgraph SST [1. Sensör Alt Sistemi]
+        S1[İrtifa ve Basınç<br/>Doğrulaması] --> S2[Eksen ve İvme<br/>IMU Testi] --> S3[Sıcaklık<br/>Dayanımı]
+    end
+    class S1,S2,S3 sst;
+
+    %% 2. Elektrik/Güç Alt Sistemi (EAS) - MAVİ
+    subgraph EAS [2. Elektrik/Güç Alt Sistemi]
+        E1[Gerilim Sensörü<br/>Testi] --> E2[Tam Yükte Güç<br/>Tüketimi]
+    end
+    class E1,E2 eas;
+
+    %% 3. Uçuş Yazılımı (UYT) - AÇIK MAVİ
+    subgraph UYT [3. Uçuş Yazılımı]
+        U1[Durum Geçiş<br/>Doğrulaması] --> U2[Kayıt ve Kurtarma<br/>SD Kart]
+    end
+    class U1,U2 uyt;
+
+    %% 4. HAVİ (Haberleşme) - SARI
+    subgraph HAVI [4. HAVİ]
+        H1[Telekomut<br/>Alım Testi] --> H2[Telemetri Menzil ve<br/>Hız Testi]
+    end
+    class H1,H2 havi;
+
+    %% 5. Mekanik Alt Sistem (MKS) - YEŞİL 1
+    subgraph MKS [5. Mekanik Alt Sistem]
+        M1[Kamera Görüş<br/>Açısı] --> M2[Yapısal Bütünlük ve<br/>İzolasyon]
+    end
+    class M1,M2 mks;
+
+    %% 6. İniş Kontrol Alt Sistemi (İKS) - YEŞİL 2
+    subgraph IKS [6. İniş Kontrol]
+        I1[Ayrılma Mekanizması<br/>Çalışması] --> I2[SİGMA PID Motor<br/>Tepki Testi]
+    end
+    class I1,I2 iks;
+
+    %% 7. APAM - TURUNCU
+    subgraph APAM [7. APAM]
+        A1[Hata Senaryosu<br/>Tetiklemesi] --> A2[Mekanik Fırlatma ve<br/>Motor Kesimi]
+    end
+    class A1,A2 apam;
+
+    %% 8. Çevresel Testler - GRİ
+    subgraph CEVRESEL [8. Çevresel Testler]
+        C1[Titreşim<br/>Vibration Testi] --> C2[Isıl<br/>Thermal Test] --> C3[Düşme/Şok<br/>Drop Testi]
+    end
+    class C1,C2,C3 cevresel;
+
+    %% Akış Bağlantıları (Sıralama)
+    S3 --> E1
+    E2 --> U1
+    U2 --> H1
+    H2 --> M1
+    M2 --> I1
+    I2 --> A1
+    A2 --> C1

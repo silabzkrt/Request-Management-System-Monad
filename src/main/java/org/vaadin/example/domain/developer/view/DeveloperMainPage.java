@@ -40,7 +40,7 @@ public class DeveloperMainPage extends VerticalLayout {
 
     private FlexLayout cardContainer;
 
-    public DeveloperMainPage(WorkflowService workflowService, UserService userService, RequestNoteService requestNoteService) {
+    public DeveloperMainPage(WorkflowService workflowService, UserService userService, RequestNoteService requestNoteService, org.vaadin.example.domain.notification.service.UserNotificationService notificationService) {
         this.workflowService = workflowService;
         this.userService = userService;
         this.requestNoteService = requestNoteService;
@@ -60,7 +60,17 @@ public class DeveloperMainPage extends VerticalLayout {
         VerticalLayout content = new VerticalLayout();
         content.setSizeFull();
         content.setPadding(true);
-        content.add(new H2("Hoşgeldiniz, " + currentUser.getNameSurname()));
+
+        HorizontalLayout headerLayout = new HorizontalLayout();
+        headerLayout.setWidthFull();
+        headerLayout.setJustifyContentMode(JustifyContentMode.BETWEEN);
+        headerLayout.setAlignItems(Alignment.CENTER);
+        headerLayout.add(new H2("Hoşgeldiniz, " + currentUser.getNameSurname()));
+        
+        org.vaadin.example.domain.notification.view.NotificationBadge notificationBadge = new org.vaadin.example.domain.notification.view.NotificationBadge(notificationService, currentUser);
+        headerLayout.add(notificationBadge);
+
+        content.add(headerLayout);
         content.add(new Span("Aşağıdaki listede size atanmış aktif görevleri öncelik puanına göre sıralı olarak görebilirsiniz."));
 
         cardContainer = new FlexLayout();
@@ -155,7 +165,7 @@ public class DeveloperMainPage extends VerticalLayout {
 
         Div coDiv = new Div(); coDiv.setText("Şirket: " + (req != null && req.getCreator() != null && req.getCreator().getCompany() != null ? req.getCreator().getCompany().getCompanyName() : "-"));
         Div typeDiv = new Div(); typeDiv.setText("Talep Tipi: " + (req != null && req.getType() != null ? req.getType().name() : "-"));
-        Div emergDiv = new Div(); emergDiv.setText("PO Skoru: " + (req != null && req.getPriority() != null && req.getPriority().getProductMgrScore() != null ? req.getPriority().getProductMgrScore() : "-"));
+        Div emergDiv = new Div(); emergDiv.setText("Ürün Yöneticisi Skoru: " + (req != null && req.getPriority() != null && req.getPriority().getProductMgrScore() != null ? String.valueOf(req.getPriority().getProductMgrScore()) : "-"));
         Div dateDiv = new Div(); 
         dateDiv.setText("Gönderme: " + (req != null && req.getCreatedAt() != null ? req.getCreatedAt().format(DateTimeFormatter.ofPattern("dd/MM/yy")) : "00/00/00"));
         
@@ -183,7 +193,7 @@ public class DeveloperMainPage extends VerticalLayout {
         detailBtn.addClickListener(e -> {
             com.vaadin.flow.component.dialog.Dialog dialog = new com.vaadin.flow.component.dialog.Dialog();
             dialog.setHeaderTitle("Talep Detayı - " + (req != null ? req.getGeneratedId() : "N/A"));
-            dialog.setWidth("500px");
+            dialog.setWidth("1000px");
             
             VerticalLayout dialogLayout = new VerticalLayout();
             dialogLayout.setPadding(false);
@@ -193,15 +203,31 @@ public class DeveloperMainPage extends VerticalLayout {
                 dialogLayout.add(new Span("Gönderen: " + (req.getCreator() != null ? req.getCreator().getNameSurname() : "-")));
                 dialogLayout.add(new Span("Şirket: " + (req.getCreator() != null && req.getCreator().getCompany() != null ? req.getCreator().getCompany().getCompanyName() : "-")));
                 dialogLayout.add(new Span("Gönderim Tarihi: " + (req.getCreatedAt() != null ? req.getCreatedAt().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")) : "-")));
-                dialogLayout.add(new Span("Öncelik Skoru: " + (req.getFinalPriorityScore() != null ? req.getFinalPriorityScore() : "-")));
+                dialogLayout.add(new Span("Öncelik Skoru: " + (req.getFinalPriorityScore() != null ? String.valueOf(req.getFinalPriorityScore()) : "-")));
                 
                 Span descSpan = new Span(req.getDescription() != null ? req.getDescription() : "Açıklama yok.");
                 descSpan.getStyle().set("margin-top", "15px").set("padding", "10px").set("background-color", "#f5f5f5").set("border-radius", "5px").set("width", "100%");
                 dialogLayout.add(descSpan);
 
-                dialogLayout.add(new H3("Notlar (Herkes Görebilir)"));
-                RequestNoteComponent noteComponent = new RequestNoteComponent(requestNoteService, req, currentUser);
-                dialogLayout.add(noteComponent);
+                HorizontalLayout notesLayout = new HorizontalLayout();
+                notesLayout.setWidthFull();
+
+                VerticalLayout publicNotes = new VerticalLayout();
+                publicNotes.setWidth("50%");
+                publicNotes.setPadding(false);
+                publicNotes.add(new H3("Müşteri ile Yazışmalar"));
+                RequestNoteComponent publicNoteComponent = new RequestNoteComponent(requestNoteService, req, currentUser, false);
+                publicNotes.add(publicNoteComponent);
+
+                VerticalLayout internalNotes = new VerticalLayout();
+                internalNotes.setWidth("50%");
+                internalNotes.setPadding(false);
+                internalNotes.add(new H3("İç Notlar (Sadece Şirket)"));
+                RequestNoteComponent internalNoteComponent = new RequestNoteComponent(requestNoteService, req, currentUser, true);
+                internalNotes.add(internalNoteComponent);
+
+                notesLayout.add(publicNotes, internalNotes);
+                dialogLayout.add(notesLayout);
             }
             
             Button closeBtn = new Button("Kapat", ev -> dialog.close());

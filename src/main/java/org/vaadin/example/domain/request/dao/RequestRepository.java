@@ -21,11 +21,11 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
     @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"creator", "creator.company", "priority"})
     List<Request> findByStatus(RequestStatus status);
 
-    @org.springframework.data.jpa.repository.Query("SELECT r FROM Request r WHERE (r.status IN (org.vaadin.example.shared.enums.RequestStatus.PENDING, org.vaadin.example.shared.enums.RequestStatus.EDITED, org.vaadin.example.shared.enums.RequestStatus.REJECTED)) AND r.priority.productMgrScore IS NULL AND (r.priority.poRejected IS NULL OR r.priority.poRejected = false)")
+    @org.springframework.data.jpa.repository.Query("SELECT r FROM Request r LEFT JOIN r.priority p WHERE (r.status IN (org.vaadin.example.shared.enums.RequestStatus.PENDING, org.vaadin.example.shared.enums.RequestStatus.EDITED, org.vaadin.example.shared.enums.RequestStatus.REJECTED)) AND (p IS NULL OR p.productMgrScore IS NULL) AND (p IS NULL OR p.poRejected IS NULL OR p.poRejected = false)")
     @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"creator", "creator.company", "priority"})
     List<Request> findPendingForPO();
     
-    @org.springframework.data.jpa.repository.Query("SELECT r FROM Request r WHERE (r.status IN (org.vaadin.example.shared.enums.RequestStatus.PENDING, org.vaadin.example.shared.enums.RequestStatus.EDITED, org.vaadin.example.shared.enums.RequestStatus.REJECTED)) AND r.priority.softwareMgrScore IS NULL AND (r.priority.supervisorRejected IS NULL OR r.priority.supervisorRejected = false)")
+    @org.springframework.data.jpa.repository.Query("SELECT r FROM Request r LEFT JOIN r.priority p WHERE (r.status IN (org.vaadin.example.shared.enums.RequestStatus.PENDING, org.vaadin.example.shared.enums.RequestStatus.EDITED, org.vaadin.example.shared.enums.RequestStatus.REJECTED)) AND (p IS NULL OR p.softwareMgrScore IS NULL) AND (p IS NULL OR p.supervisorRejected IS NULL OR p.supervisorRejected = false)")
     @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"creator", "creator.company", "priority"})
     List<Request> findPendingForSupervisor();
 
@@ -35,11 +35,11 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
     @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"creator", "creator.company", "priority"})
     List<Request> findByPriority_SoftwareMgrScoreIsNotNull();
 
-    @org.springframework.data.jpa.repository.Query("SELECT r FROM Request r WHERE (r.priority.productMgrScore IS NOT NULL OR r.priority.poRejected = true OR r.status = org.vaadin.example.shared.enums.RequestStatus.UNASSIGNED) AND r.status != org.vaadin.example.shared.enums.RequestStatus.EDITED")
+    @org.springframework.data.jpa.repository.Query("SELECT r FROM Request r LEFT JOIN r.priority p WHERE (p IS NOT NULL AND (p.productMgrScore IS NOT NULL OR p.poRejected = true)) OR r.status = org.vaadin.example.shared.enums.RequestStatus.UNASSIGNED")
     @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"creator", "creator.company", "priority"})
     List<Request> findPastForPO();
 
-    @org.springframework.data.jpa.repository.Query("SELECT r FROM Request r WHERE (r.priority.softwareMgrScore IS NOT NULL OR r.priority.supervisorRejected = true OR r.status = org.vaadin.example.shared.enums.RequestStatus.UNASSIGNED) AND r.status != org.vaadin.example.shared.enums.RequestStatus.EDITED")
+    @org.springframework.data.jpa.repository.Query("SELECT r FROM Request r LEFT JOIN r.priority p WHERE (p IS NOT NULL AND (p.softwareMgrScore IS NOT NULL OR p.supervisorRejected = true)) OR r.status = org.vaadin.example.shared.enums.RequestStatus.UNASSIGNED")
     @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"creator", "creator.company", "priority"})
     List<Request> findPastForSupervisor();
 

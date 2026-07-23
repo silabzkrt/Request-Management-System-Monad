@@ -27,6 +27,7 @@ import org.vaadin.example.domain.notification.view.NotificationBadge;
 import org.vaadin.example.domain.priority.model.Priority;
 import org.vaadin.example.domain.priority.service.PriorityCalculationService;
 import org.vaadin.example.domain.request.model.Request;
+import org.vaadin.example.domain.request.service.RequestNoteService;
 import org.vaadin.example.domain.request.view.components.RequestNoteComponent;
 import org.vaadin.example.domain.request.service.RequestService;
 import org.vaadin.example.domain.user.model.User;
@@ -132,11 +133,13 @@ public class ProductOwnerMainPage extends HorizontalLayout {
         TextField companyFilter = new TextField("Şirket Ara");
         companyFilter.setClearButtonVisible(true);
 
-        Button applyFilterBtn = new Button("Filtrele", e -> updateGrid(typeFilter.getValue(), companyFilter.getValue()));
+        com.vaadin.flow.component.checkbox.Checkbox showPastCheckbox = new com.vaadin.flow.component.checkbox.Checkbox("Geçmiş/Reddedilen Talepleri Göster");
+
+        Button applyFilterBtn = new Button("Filtrele", e -> updateGrid(typeFilter.getValue(), companyFilter.getValue(), showPastCheckbox.getValue()));
         applyFilterBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         applyFilterBtn.getStyle().set("background-color", "#3b6998");
         
-        filterBar.add(typeFilter, companyFilter, applyFilterBtn);
+        filterBar.add(typeFilter, companyFilter, showPastCheckbox, applyFilterBtn);
 
         requestGrid = new Grid<>(Request.class, false);
         requestGrid.getStyle().set("background", "rgba(255, 255, 255, 0.8)").set("border-radius", "8px");
@@ -159,16 +162,21 @@ public class ProductOwnerMainPage extends HorizontalLayout {
             return evaluateBtn;
         }).setHeader("Actions").setAutoWidth(true);
 
-        updateGrid(null, null);
+        updateGrid(null, null, false);
 
         main.add(header, logo, filterBar, requestGrid);
         return main;
     }
 
-    private void updateGrid(TaskType type, String company) {
-        List<Request> pendingReqs = requestService.findPendingForPO();
+    private void updateGrid(TaskType type, String company, boolean showPast) {
+        List<Request> displayedReqs = new java.util.ArrayList<>();
+        if (showPast) {
+            displayedReqs.addAll(requestService.findPastForPO());
+        } else {
+            displayedReqs.addAll(requestService.findPendingForPO());
+        }
         
-        pendingReqs.sort((r1, r2) -> {
+        displayedReqs.sort((r1, r2) -> {
             double w1 = org.vaadin.example.domain.priority.service.PriorityCalculationService.getTaskTypeMultiplier(r1.getType());
             double w2 = org.vaadin.example.domain.priority.service.PriorityCalculationService.getTaskTypeMultiplier(r2.getType());
             if (Double.compare(w2, w1) != 0) {
@@ -181,20 +189,20 @@ public class ProductOwnerMainPage extends HorizontalLayout {
         });
 
         if (type != null) {
-            pendingReqs.removeIf(r -> r.getType() != type);
+            displayedReqs.removeIf(r -> r.getType() != type);
         }
         if (company != null && !company.trim().isEmpty()) {
-            pendingReqs.removeIf(r -> r.getCreator() == null || r.getCreator().getCompany() == null || 
+            displayedReqs.removeIf(r -> r.getCreator() == null || r.getCreator().getCompany() == null || 
                                     !r.getCreator().getCompany().getCompanyName().toLowerCase().contains(company.toLowerCase()));
         }
         
-        requestGrid.setItems(pendingReqs);
+        requestGrid.setItems(displayedReqs);
     }
 
     private void openEvaluationDialog(Request req) {
         Dialog dialog = new Dialog();
         dialog.setHeaderTitle("Talebi Değerlendir (ID: " + req.getId() + ")");
-        dialog.setWidth("800px");
+        dialog.setWidth("1200px");
         dialog.setMaxHeight("90vh");
 
         HorizontalLayout mainLayout = new HorizontalLayout();
@@ -202,7 +210,7 @@ public class ProductOwnerMainPage extends HorizontalLayout {
 
         // Sol taraf: Talep Detayları (Salt-Okunur)
         VerticalLayout detailsLayout = new VerticalLayout();
-        detailsLayout.setWidth("50%");
+        detailsLayout.setWidth("33%");
         detailsLayout.getStyle().set("background", "#f8f9fa").set("padding", "15px").set("border-radius", "8px");
 
         detailsLayout.add(new H3("Talep Detayları"));
@@ -213,27 +221,44 @@ public class ProductOwnerMainPage extends HorizontalLayout {
         detailsLayout.add(new Div(new Span("Tip: "), new Span(req.getType() != null ? req.getType().name() : "-")));
         detailsLayout.add(new Div(new Span("Deadline: "), new Span(req.getDeadline() != null ? req.getDeadline().toString() : "-")));
 
-        if (req.getAttachmentPath() != null) {
-            java.io.File file = new java.io.File(req.getAttachmentPath());
-            if (file.exists()) {
-                com.vaadin.flow.server.StreamResource resource = new com.vaadin.flow.server.StreamResource(
-                    file.getName(), () -> {
-                        try { return new java.io.FileInputStream(file); }
-                        catch (Exception ex) { return null; }
-                    });
-                Anchor downloadLink = new Anchor(resource, "Dosyayı İndir");
-                downloadLink.setTarget("_blank");
-                detailsLayout.add(new Div(new Span("Ek: "), downloadLink));
+        if (req.getAttachmentPath() != null && !req.getAttachmentPath().trim().isEmpty()) {
+            Div attachmentsDiv = new Div();
+            attachmentsDiv.add(new Span("Ekli Dosya(lar): "));
+            String[] paths = req.getAttachmentPath().split(";");
+            for (String pathStr : paths) {
+                java.io.File file = new java.io.File(pathStr);
+                if (file.exists()) {
+                    com.vaadin.flow.server.StreamResource resource = new com.vaadin.flow.server.StreamResource(
+                        file.getName(), () -> {
+                            try { return new java.io.FileInputStream(file); }
+                            catch (Exception ex) { return null; }
+                        });
+                    Anchor downloadLink = new Anchor(resource, file.getName());
+                    downloadLink.setTarget("_blank");
+                    downloadLink.getStyle().set("margin-right", "10px");
+                    attachmentsDiv.add(downloadLink);
+                }
             }
+            detailsLayout.add(attachmentsDiv);
         }
 
-        // Sağ taraf: Notlar ve Puanlama
+        // Orta taraf: Müşteri Notları
+        VerticalLayout centerLayout = new VerticalLayout();
+        centerLayout.setWidth("33%");
+        centerLayout.setPadding(false);
+        centerLayout.add(new H3("Müşteri ile Yazışmalar"));
+        RequestNoteComponent publicNoteComponent = new RequestNoteComponent(requestNoteService, req, currentUser, false);
+        centerLayout.add(publicNoteComponent);
+
+        // Sağ taraf: İç Notlar ve Puanlama
         VerticalLayout rightLayout = new VerticalLayout();
-        rightLayout.setWidth("50%");
+        rightLayout.setWidth("33%");
         rightLayout.setPadding(false);
 
-        // Notlar Kısmı (Bileşen ile)
-        RequestNoteComponent noteComponent = new RequestNoteComponent(requestNoteService, req, currentUser);
+        // İç Notlar Kısmı
+        rightLayout.add(new H3("İç Notlar (Sadece Şirket)"));
+        RequestNoteComponent internalNoteComponent = new RequestNoteComponent(requestNoteService, req, currentUser, true);
+        rightLayout.add(internalNoteComponent);
         
         // Puanlama Kısmı
         VerticalLayout scoringArea = new VerticalLayout();
@@ -246,31 +271,31 @@ public class ProductOwnerMainPage extends HorizontalLayout {
             req.setPriority(priority);
         }
 
-        IntegerField customerRankField = new IntegerField("Customer Rank (örn: 1-10)");
+        IntegerField customerRankField = new IntegerField("Müşteri Değeri");
         customerRankField.setValue(priority.getCustomerRank());
 
-        IntegerField productMgrScoreField = new IntegerField("Product Manager Score (1-5)");
+        IntegerField productMgrScoreField = new IntegerField("Ürün Yöneticisi Skoru");
         productMgrScoreField.setMin(1);
         productMgrScoreField.setMax(5);
         productMgrScoreField.setValue(priority.getProductMgrScore());
 
-        NumberField paymentPriorityField = new NumberField("Payment Priority");
+        NumberField paymentPriorityField = new NumberField("Ödeme Önceliği");
         if (priority.getPaymentPriority() != null) paymentPriorityField.setValue(priority.getPaymentPriority());
 
-        com.vaadin.flow.component.checkbox.Checkbox highestPriorityCheckbox = new com.vaadin.flow.component.checkbox.Checkbox("Highest Priority (Acil Durum)");
+        com.vaadin.flow.component.checkbox.Checkbox highestPriorityCheckbox = new com.vaadin.flow.component.checkbox.Checkbox("Acil Durum (En Yüksek Öncelik)");
         highestPriorityCheckbox.setValue(Boolean.TRUE.equals(priority.getHighestPriority()));
         highestPriorityCheckbox.getStyle().set("color", "#d9534f").set("font-weight", "bold");
 
         scoringArea.add(new H3("Puanlama"), customerRankField, productMgrScoreField, paymentPriorityField, highestPriorityCheckbox);
 
-        rightLayout.add(new H3("Notlar (Herkes Görebilir)"), noteComponent, scoringArea);
-        mainLayout.add(detailsLayout, rightLayout);
+        rightLayout.add(scoringArea);
+        mainLayout.add(detailsLayout, centerLayout, rightLayout);
 
         dialog.add(mainLayout);
 
         Button saveBtn = new Button("Puanla ve Kaydet", e -> {
             if (productMgrScoreField.getValue() == null || productMgrScoreField.getValue() < 1 || productMgrScoreField.getValue() > 5) {
-                Notification.show("Product Manager Score 1 ile 5 arasında olmalıdır!");
+                Notification.show("Ürün Yöneticisi Skoru 1 ile 5 arasında olmalıdır!");
                 return;
             }
 
@@ -285,7 +310,7 @@ public class ProductOwnerMainPage extends HorizontalLayout {
             
             requestService.save(req);
             Notification.show("Talebi değerlendirdiniz.");
-            updateGrid(null, null);
+            updateGrid(null, null, false);
             dialog.close();
         });
         saveBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
@@ -294,7 +319,7 @@ public class ProductOwnerMainPage extends HorizontalLayout {
         Button rejectBtn = new Button("Talebi Reddet", e -> {
             requestService.rejectByPO(req);
             Notification.show("Talep Reddedildi.");
-            updateGrid(null, null);
+            updateGrid(null, null, false);
             dialog.close();
         });
         rejectBtn.addThemeVariants(ButtonVariant.LUMO_ERROR);

@@ -26,6 +26,7 @@ import org.vaadin.example.domain.productowner.view.ProductOwnerpastRequests;
 import org.vaadin.example.domain.supervisor.view.AssignTaskPage;
 import org.vaadin.example.domain.supervisor.view.Software_SMainPage;
 import org.vaadin.example.domain.supervisor.view.Software_SPastRequests;
+import org.vaadin.example.domain.supervisor.view.SupervisorDeveloperScoresPage;
 import org.vaadin.example.domain.user.model.User;
 import org.vaadin.example.domain.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -148,7 +149,11 @@ public class MainLayout extends AppLayout {
                 assignTaskBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
                 assignTaskBtn.getStyle().set("background-color", "#007bff").set("width", "100%").set("margin-top", "10px");
                 
-                sidebar.add(pastReqBtn, assignTaskBtn);
+                Button devScoresBtn = new Button("Yazılımcı Performansları", e -> UI.getCurrent().navigate(SupervisorDeveloperScoresPage.class));
+                devScoresBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+                devScoresBtn.getStyle().set("background-color", "#17a2b8").set("width", "100%").set("margin-top", "10px");
+                
+                sidebar.add(pastReqBtn, assignTaskBtn, devScoresBtn);
             } else if (fRole.equals("ROLE_YAZILIMCI")) {
                 Button pastReqBtn = new Button("Geçmiş İşler", e -> UI.getCurrent().navigate(DeveloperPastRequests.class));
                 pastReqBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);

@@ -22,6 +22,8 @@ public class NotificationBadge extends Div {
     private final Button bellButton;
     private final Span badge;
 
+    private long lastUnreadCount = -1;
+
     public NotificationBadge(UserNotificationService notificationService, User currentUser) {
         this.notificationService = notificationService;
         this.currentUser = currentUser;
@@ -43,6 +45,27 @@ public class NotificationBadge extends Div {
 
         add(bellButton, badge);
         updateBadge();
+    }
+
+    @Override
+    protected void onAttach(com.vaadin.flow.component.AttachEvent attachEvent) {
+        super.onAttach(attachEvent);
+        com.vaadin.flow.component.UI ui = attachEvent.getUI();
+        ui.setPollInterval(3000); // Poll every 3 seconds
+
+        lastUnreadCount = notificationService.getUnreadCount(currentUser);
+
+        ui.addPollListener(e -> {
+            long currentCount = notificationService.getUnreadCount(currentUser);
+            if (lastUnreadCount != -1 && currentCount > lastUnreadCount) {
+                // Play a beep sound
+                ui.getPage().executeJs("try { var ctx = new (window.AudioContext || window.webkitAudioContext)(); var osc = ctx.createOscillator(); var gain = ctx.createGain(); osc.connect(gain); gain.connect(ctx.destination); osc.type = 'sine'; osc.frequency.value = 600; gain.gain.setValueAtTime(0.1, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5); osc.start(); osc.stop(ctx.currentTime + 0.5); } catch(e) {}");
+            }
+            if (currentCount != lastUnreadCount) {
+                lastUnreadCount = currentCount;
+                updateBadge();
+            }
+        });
     }
 
     private void updateBadge() {

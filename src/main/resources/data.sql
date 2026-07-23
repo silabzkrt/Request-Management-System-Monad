@@ -30,7 +30,7 @@ INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, pa
 INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, password, role, company_ID) VALUES ('YAZILIMCI', 19, 1, 'Huseyin ACIME', 'huseyin.acime@monad.com.tr', '123', 'ROLE_YAZILIMCI', 1);
 INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, password, role, company_ID) VALUES ('YAZILIMCI', 20, 1, 'Muhammet DU', 'muhammet.du@monad.com.tr', '123', 'ROLE_YAZILIMCI', 1);
 INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, password, role, company_ID) VALUES ('YAZILIMCI', 21, 1, 'Elif Bozkurt', 'elif.bozkurt@monad.com.tr', '123', 'ROLE_YAZILIMCI', 1);
-INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, password, role, company_ID) VALUES ('YAZILIMCI', 22, 1, 'Rabia Kirim', 'rabia.kirim@monad.com.tr', '123', 'ROLE_YAZILIMCI', 1);
+INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, password, role, company_ID) VALUES ('YAZILIMCI', 22, 1, 'Rabia Kirim', 'rabia.kirim@monadyazilim.com', '123', 'ROLE_YAZILIMCI', 1);
 INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, password, role, company_ID) VALUES ('YAZILIMCI', 23, 1, 'Zulfikar YILDIRIM', 'zulfikar.yildirim@monad.com.tr', '123', 'ROLE_YAZILIMCI', 1);
 INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, password, role, company_ID) VALUES ('YAZILIMCI', 24, 1, 'Muhammed Sa', 'muhammed.sa@monad.com.tr', '123', 'ROLE_YAZILIMCI', 1);
 INSERT INTO users_Sila (user_type, user_ID, is_approved, name_surname, email, password, role, company_ID) VALUES ('YAZILIMCI', 25, 1, 'Semih ALTIOK', 'semih.altiok@monad.com.tr', '123', 'ROLE_YAZILIMCI', 1);

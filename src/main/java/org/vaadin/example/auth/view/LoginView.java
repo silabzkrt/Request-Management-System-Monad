@@ -86,7 +86,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
             .set("cursor", "pointer")
             .set("margin-top", "30px");
             
-        Anchor forgotPassword = new Anchor("#", "Şifremi Unuttum");
+        Anchor forgotPassword = new Anchor("forgot-password", "Şifremi Unuttum");
         forgotPassword.getStyle().set("font-size", "13px").set("color", "#3b6998").set("text-decoration", "underline").set("margin-top", "15px");
             
         VerticalLayout customLoginForm = new VerticalLayout(loginTitle, loginLayout, submitBtn, forgotPassword);

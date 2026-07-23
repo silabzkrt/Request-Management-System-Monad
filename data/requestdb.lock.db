@@ -1,0 +1,6 @@
+#FileLock
+#Mon Jul 20 16:06:34 GMT+03:00 2026
+hostName=192.168.10.120
+id=19f7fa2a819be7652d4f2e1308d4f36d3758c84bd36
+method=file
+server=192.168.10.120\:50418

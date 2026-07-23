@@ -9,6 +9,12 @@ import java.util.List;
 
 @Repository
 public interface RequestNoteRepository extends JpaRepository<RequestNote, Long> {
-    @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"submitter"})
+    @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"submitter", "attachments"})
     List<RequestNote> findByRequestOrderByCreatedAtDesc(Request request);
+
+    @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"submitter", "attachments"})
+    List<RequestNote> findByRequestAndIsInternalFalseOrderByCreatedAtDesc(Request request);
+
+    @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"submitter", "attachments"})
+    List<RequestNote> findByRequestAndIsInternalTrueOrderByCreatedAtDesc(Request request);
 }

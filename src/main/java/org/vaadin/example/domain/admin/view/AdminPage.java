@@ -23,6 +23,8 @@ import org.vaadin.example.domain.company.model.Company;
 import org.vaadin.example.domain.company.service.CompanyService;
 import org.vaadin.example.domain.user.model.User;
 import org.vaadin.example.domain.user.service.UserService;
+import org.vaadin.example.domain.contactadmin.model.ContactAdminMessage;
+import org.vaadin.example.domain.contactadmin.service.ContactAdminMessageService;
 
 @Route(value = "admin", layout = MainLayout.class)
 @RolesAllowed("ADMIN")
@@ -31,13 +33,16 @@ public class AdminPage extends VerticalLayout {
 
     private final UserService userService;
     private final CompanyService companyService;
+    private final ContactAdminMessageService contactAdminMessageService;
 
     private Grid<User> userGrid;
     private Grid<Company> companyGrid;
+    private Grid<ContactAdminMessage> messageGrid;
 
-    public AdminPage(UserService userService, CompanyService companyService) {
+    public AdminPage(UserService userService, CompanyService companyService, ContactAdminMessageService contactAdminMessageService) {
         this.userService = userService;
         this.companyService = companyService;
+        this.contactAdminMessageService = contactAdminMessageService;
 
         setSizeFull();
         setPadding(true);
@@ -48,25 +53,26 @@ public class AdminPage extends VerticalLayout {
 
         Tab userTab = new Tab("Kullanıcı Yönetimi");
         Tab companyTab = new Tab("Şirket Yönetimi");
-        Tabs tabs = new Tabs(userTab, companyTab);
+        Tab messageTab = new Tab("İletişim Mesajları");
+        Tabs tabs = new Tabs(userTab, companyTab, messageTab);
 
         VerticalLayout userContent = createUserManagementContent();
         VerticalLayout companyContent = createCompanyManagementContent();
+        VerticalLayout messageContent = createMessageManagementContent();
         companyContent.setVisible(false);
+        messageContent.setVisible(false);
 
         tabs.addSelectedChangeListener(event -> {
-            if (event.getSelectedTab() == userTab) {
-                userContent.setVisible(true);
-                companyContent.setVisible(false);
-                refreshUserGrid();
-            } else {
-                userContent.setVisible(false);
-                companyContent.setVisible(true);
-                refreshCompanyGrid();
-            }
+            userContent.setVisible(event.getSelectedTab() == userTab);
+            companyContent.setVisible(event.getSelectedTab() == companyTab);
+            messageContent.setVisible(event.getSelectedTab() == messageTab);
+            
+            if (event.getSelectedTab() == userTab) refreshUserGrid();
+            else if (event.getSelectedTab() == companyTab) refreshCompanyGrid();
+            else if (event.getSelectedTab() == messageTab) refreshMessageGrid();
         });
 
-        add(tabs, userContent, companyContent);
+        add(tabs, userContent, companyContent, messageContent);
     }
 
     // ==========================================
@@ -220,5 +226,49 @@ public class AdminPage extends VerticalLayout {
             }
         });
         dialog.open();
+    }
+
+    // ==========================================
+    // MESSAGE MANAGEMENT
+    // ==========================================
+
+    private VerticalLayout createMessageManagementContent() {
+        VerticalLayout layout = new VerticalLayout();
+        layout.setSizeFull();
+
+        messageGrid = new Grid<>(ContactAdminMessage.class, false);
+        messageGrid.addColumn(ContactAdminMessage::getId).setHeader("ID").setAutoWidth(true);
+        messageGrid.addColumn(msg -> msg.getSender() != null ? msg.getSender().getNameSurname() : "Bilinmeyen").setHeader("Gönderen").setAutoWidth(true);
+        messageGrid.addColumn(msg -> msg.getSender() != null ? msg.getSender().getEmail() : "-").setHeader("E-posta").setAutoWidth(true);
+        messageGrid.addColumn(ContactAdminMessage::getTitle).setHeader("Konu").setAutoWidth(true);
+        
+        messageGrid.addComponentColumn(msg -> {
+            Button readBtn = new Button("Oku", VaadinIcon.EYE.create());
+            readBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SMALL);
+            readBtn.addClickListener(e -> {
+                Dialog d = new Dialog();
+                d.setHeaderTitle("Mesaj Detayı");
+                d.add(new Span("Gönderen: " + (msg.getSender() != null ? msg.getSender().getNameSurname() + " (" + msg.getSender().getEmail() + ")" : "Bilinmeyen")));
+                d.add(new com.vaadin.flow.component.html.Hr());
+                d.add(new H2(msg.getTitle()));
+                Span content = new Span(msg.getDescription());
+                content.getStyle().set("white-space", "pre-wrap");
+                d.add(content);
+                Button close = new Button("Kapat", ev -> d.close());
+                d.getFooter().add(close);
+                d.open();
+            });
+            return readBtn;
+        }).setHeader("İşlem").setAutoWidth(true);
+
+        refreshMessageGrid();
+        layout.add(messageGrid);
+        return layout;
+    }
+
+    private void refreshMessageGrid() {
+        if (contactAdminMessageService != null) {
+            messageGrid.setItems(contactAdminMessageService.findAll());
+        }
     }
 }

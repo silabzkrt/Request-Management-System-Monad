@@ -6,4 +6,6 @@ import org.vaadin.example.domain.contactadmin.model.ContactAdminMessage;
 
 @Repository
 public interface ContactAdminMessageRepository extends JpaRepository<ContactAdminMessage, Long> {
+    @org.springframework.data.jpa.repository.EntityGraph(attributePaths = {"sender"})
+    java.util.List<ContactAdminMessage> findAll();
 }
